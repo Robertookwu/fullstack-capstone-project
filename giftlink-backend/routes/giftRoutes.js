@@ -1,3 +1,5 @@
+const express = require('express');
+const router = express.Router();
 const connectToDatabase = require("../models/db");
 
 router.get('/', async (req, res) => {
@@ -7,7 +9,8 @@ router.get('/', async (req, res) => {
         const db = await connectToDatabase();
         // Task 2: use the collection() method to retrieve the gift collection
         // {{insert code here}}
-        const collection = db.collection("gifts");
+        const collection =  db.collection("gifts");
+
         // Task 3: Fetch all gifts using the collection.find method. Chain with toArray method to convert to JSON array
         // const gifts = {{insert code here}}
         const gifts = await collection.find({}).toArray();
@@ -15,7 +18,7 @@ router.get('/', async (req, res) => {
 
         res.json(gifts);
     } catch (e) {
-        console.error('Error fetching gifts:', e);
+       // console.error('Error fetching gifts:', e);
         res.status(500).send('Error fetching gifts');
     }
 });
