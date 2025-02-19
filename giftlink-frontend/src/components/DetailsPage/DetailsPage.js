@@ -99,7 +99,7 @@ return (<>
                         {gift.condition}
                     	</p>
                     	<p><strong>Date Added:</strong> 
-                        {gift.date_added}
+                        {gift.dateAdded}
                         </p>
                     	<p><strong>Age (Years):</strong> 
                         {gift.age}
