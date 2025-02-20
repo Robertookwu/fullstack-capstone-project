@@ -53,7 +53,7 @@ function RegisterPage(){
                         <h2 className="text-center mb-4 font-weight-bold">Register</h2>
                 {/* insert code here to create input elements for all the variables - firstName, lastName, email, password */}
                 <div className="mb-4">
-                <div className="text-danger">{showerr}</div>
+                
 <label htmlFor="firstName" className="form label"> FirstName</label><br />
 <input
 id="firstName"
@@ -87,7 +87,9 @@ placeholder="Enter your email"
 value={email}
 onChange={(e) => setEmail(e.target.value)}
 />
+<div className="text-danger">{showerr}</div>
 </div>
+
 <div className="mb-4">
 
 <label htmlFor="password" className="form label">Password</label><br />
