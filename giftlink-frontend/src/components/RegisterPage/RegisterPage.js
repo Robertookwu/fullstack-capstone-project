@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-
+import {urlConfig} from "../../config";
+import {useAppContext} from "../../context/AuthContext";
+import {useNavigate} from "react-router-dom";
 import './RegisterPage.css';
 
 function RegisterPage(){
@@ -8,9 +10,40 @@ function RegisterPage(){
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showerr, setShowerr] = useState('');
+  const navigate = useNavigate();
+    const { setIsLoggedIn } = useAppContext();
     // insert code here to create handleRegister function and include console.log
     const handleRegister = async () => {
-        console.log("Register invoked");
+    try{
+        const response = await fetch(`${urlConfig.backendUrl}/api/auth/register`, {
+           method: 'POST', //Task 6: Set method
+           headers: {
+                    'content-type': 'application/json',
+                }, //Task 7: Set headers
+           body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password
+            }) //Task 8: Set body to send user details
+     });
+     const json = await response.json();
+     if (json.authtoken) {
+            sessionStorage.setItem('auth-token', json.authtoken);
+            sessionStorage.setItem('name', firstName);
+            sessionStorage.setItem('email', json.email);
+            //insert code for setting logged in state
+            setIsLoggedIn(true);
+            //insert code for navigating to MainPAge
+            navigate('/app');
+        }
+        if (json.error) {
+        setShowerr(json.error);
+        }
+    }catch(e){
+
+    }
     }
     return (<>
         <div className="container mt-5">
@@ -20,7 +53,7 @@ function RegisterPage(){
                         <h2 className="text-center mb-4 font-weight-bold">Register</h2>
                 {/* insert code here to create input elements for all the variables - firstName, lastName, email, password */}
                 <div className="mb-4">
-
+                <div className="text-danger">{showerr}</div>
 <label htmlFor="firstName" className="form label"> FirstName</label><br />
 <input
 id="firstName"
