@@ -97,7 +97,7 @@ onChange={(e) => setEmail(e.target.value)}
 id="password"
 type="password"
 className="form-control"
-placeholder="Enter your firstName"
+placeholder="Enter your Password"
 value={password}
 onChange={(e) => setPassword(e.target.value)}
 />
