@@ -75,7 +75,6 @@ function DetailsPage() {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if (!gift) return <div>Gift not found</div>;
-
 return (<>
         <div className="container mt-5">
             <button className="btn btn-secondary mb-3" onClick={handleBackClick}>Back</button>
@@ -99,10 +98,10 @@ return (<>
                         {gift.condition}
                     	</p>
                     	<p><strong>Date Added:</strong> 
-                        {gift.dateAdded}
+                        {gift.date_added}
                         </p>
                     	<p><strong>Age (Years):</strong> 
-                        {gift.age}
+                        {gift.age_years}
                     	</p>
                     	<p><strong>Description:</strong> 
                         {gift.description}
