@@ -36,7 +36,7 @@ function LoginPage() {
         type="password"
         className="form-control"
         placeholder="Enter your Password"
-        value={email}
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
     />
 </div>

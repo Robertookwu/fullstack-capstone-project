@@ -21,7 +21,7 @@ function RegisterPage(){
                 {/* insert code here to create input elements for all the variables - firstName, lastName, email, password */}
                 <div className="mb-4">
 
-<label htmlFor="firstName" className="form label"> FirstName</label><br>
+<label htmlFor="firstName" className="form label"> FirstName</label><br />
 <input
 id="firstName"
 type="text"
@@ -33,7 +33,7 @@ onChange={(e) => setFirstName(e.target.value)}
 </div>
 <div className="mb-4">
 
-<label htmlFor="lastName" className="form label">Lastname</label><br>
+<label htmlFor="lastName" className="form label">Lastname</label><br />
 <input
 id="lastName"
 type="text"
@@ -45,7 +45,7 @@ onChange={(e) => setLastName(e.target.value)}
 </div>
 <div className="mb-4">
 
-<label htmlFor="email" className="form label">Email</label><br>
+<label htmlFor="email" className="form label">Email</label><br />
 <input
 id="email"
 type="email"
@@ -57,7 +57,7 @@ onChange={(e) => setEmail(e.target.value)}
 </div>
 <div className="mb-4">
 
-<label htmlFor="password" className="form label">Password</label><br>
+<label htmlFor="password" className="form label">Password</label><br />
 <input
 id="password"
 type="password"
